@@ -44,4 +44,5 @@ logging:
 #静态文件后缀
 web:
   staticFile: .css,.js,.png,.jpg,.gif,.jpeg,.bmp,.ico,.swf,.psd,.htc,.htm,.html,.crx,.xpi,.exe,.ipa,.apk
-    
+#自定义变量
+disk: d://    

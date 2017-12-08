@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,9 @@ public class FileController {
 
 	@Autowired
 	private FileService fileService;
+	
+	@Value("${disk}")
+	private String disk;
 
 	@RequestMapping(value = "upLoadPage", method = RequestMethod.GET)
 	public String upLoadPage(Model model, long menuId) {
@@ -68,19 +72,23 @@ public class FileController {
 
 		InputStream inputStream = null;
 		FileOutputStream outputStream = null;
-
+		
+		if(!Folder.diskUsable(disk, files)) {
+			return "diskError";
+		}
+		
 		for (MultipartFile file : files) {
 			try {
 				if (!file.isEmpty()) {
 					inputStream = file.getInputStream();
-
+					
 					String[] fileFolder = folder.split("\\.");
 
-					File newFolder1 = new File("d:\\" + menuName);
+					File newFolder1 = new File(disk + menuName);
 
 					Folder.folderExists(newFolder1);
 
-					File newFolder = new File("d:\\" + menuName + "\\" + fileFolder[0]);
+					File newFolder = new File(disk + menuName + "/" + fileFolder[0]);
 
 					Folder.folderExists(newFolder);
 
@@ -99,10 +107,10 @@ public class FileController {
 					String fileName = file.getOriginalFilename();
 
 					if (fileFolder.length > 1) {
-						fileService.addFile(fileName, "d://" + menuName + "/" + folder + "/" + fileName, menuId,
+						fileService.addFile(fileName, disk + menuName + "/" + folder + "/" + fileName, menuId,
 								Long.parseLong(fileFolder[1]));
 					} else {
-						fileService.addFile(fileName, "d://" + menuName + "/" + folder + "/" + fileName, menuId, 0);
+						fileService.addFile(fileName, disk + menuName + "/" + folder + "/" + fileName, menuId, 0);
 					}
 
 				}
