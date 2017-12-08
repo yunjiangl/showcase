@@ -8,7 +8,7 @@ spring:
     initialize: false
     url: jdbc:mysql://localhost:3306/xqxx_nfdw?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: admin
+    password: 1234
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
     max-active: 2
@@ -44,5 +44,4 @@ logging:
 #静态文件后缀
 web:
   staticFile: .css,.js,.png,.jpg,.gif,.jpeg,.bmp,.ico,.swf,.psd,.htc,.htm,.html,.crx,.xpi,.exe,.ipa,.apk
-#自定义变量
-disk: d://    
+    

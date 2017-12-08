@@ -3,6 +3,7 @@ package com.exqoo.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -54,5 +55,9 @@ public interface FileDao {
 	 */
 	@Select("select * from nfdw_file")
 	List<FileEntity> selectQueryAll();
-
+	/**
+	 * 查询二级菜单下的所有文件
+	 */
+	@Select("select * from nfdw_file where file_folder=#{file_folder}")
+	List<FileEntity> selectFileFolder(@Param("file_folder") long fileFolder);
 }

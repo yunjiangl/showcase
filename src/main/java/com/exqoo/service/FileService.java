@@ -2,6 +2,7 @@ package com.exqoo.service;
 
 import java.util.List;
 
+
 import com.exqoo.entity.FileEntity;
 
 public interface FileService {
@@ -45,5 +46,9 @@ public interface FileService {
 	 * 通过后缀名的不同放入相应的目录下
 	 */
 	List<FileEntity> selectQueryAll();
+	/**
+	 * 查询二级菜单下的所有文件
+	 */
+	List<FileEntity> selectFileFolder(long fileFolder);
 
 }

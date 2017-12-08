@@ -56,4 +56,12 @@ public class FileServiceImpl implements FileService {
 		return fileDao.selectQueryAll();
 	}
 
+	/**
+	 * 查询二级菜单下的所有文件
+	 */
+	public List<FileEntity> selectFileFolder(long fileFolder) {
+		
+		return fileDao.selectFileFolder(fileFolder);
+	}
+
 }

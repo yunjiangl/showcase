@@ -7,7 +7,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exqoo.entity.FileEntity;
 import com.exqoo.entity.FolderEntity;
@@ -96,5 +98,15 @@ public class SysFolderController {
 		List<FileEntity> filelist=fileServiceImpl.selectQueryAll();
 		model.addAttribute("filelist", filelist);
 		return "sys/main";
+	}
+	/**
+	 * 通过ajax获取二级菜单下的文件数据
+	 */
+	@RequestMapping(value="/sys/main/selectfolder",method=RequestMethod.GET)
+	@ResponseBody
+	public List<FileEntity> selectfolder(Model model,@RequestParam("qwe") long qwe) {
+		List<FileEntity> list=fileServiceImpl.selectFileFolder(qwe);
+		model.addAttribute("flist", list);
+		return list;
 	}
 }

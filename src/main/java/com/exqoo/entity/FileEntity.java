@@ -62,6 +62,12 @@ public class FileEntity {
 	public void setFileFolder(long fileFolder) {
 		this.fileFolder = fileFolder;
 	}
+
+	@Override
+	public String toString() {
+		return "FileEntity [fileId=" + fileId + ", fileName=" + fileName + ", fileUrl=" + fileUrl + ", fileMenu="
+				+ fileMenu + ", fileFolder=" + fileFolder + ", fileSuffix=" + fileSuffix + "]";
+	}
 	
 	
 	
