@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exqoo.dao.FileDao">
+
+    
+  <insert id="addFile" parameterType="com.exqoo.entity.FileEntity"> 
+        insert into nfdw_file(file_name,file_url,file_menu,file_folder,file_suffix)  
+             values(#{fileName},#{fileUrl},#{fileMenu},#{fileFolder},#{fileSuffix})  
+    </insert>
+
+</mapper>

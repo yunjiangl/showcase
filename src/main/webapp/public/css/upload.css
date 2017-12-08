@@ -1,0 +1,25 @@
+.upload{
+	width: 500px;
+	overflow: hidden;
+}
+.upload .n1{
+	width: 300px;
+	height: 30px;
+}
+.upload .page-header{
+	border-bottom: none;
+}
+.container{
+	margin: 0px 0 0 0px;
+	margin-top: 20px;
+}
+.font{
+	float: left;
+	margin: 0 10px 0 -15px;
+}
+.file{
+	float: left;
+}
+.t1{
+	width: 200px;
+}

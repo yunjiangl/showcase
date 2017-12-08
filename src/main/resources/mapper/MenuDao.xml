@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exqoo.dao.MenuDao">
+
+	<resultMap type="MenuEntity" id="menuMap">
+		<id column="menu_id" property="menuId"></id>
+		<result column="menu_name" property="menuName"/>
+	</resultMap>
+	<select id="selectMenu" resultMap="menuMap">
+		select menu_id,menu_name from nfdw_menu
+	</select>
+	 
+	 <select id="selectMenuByMenuId" parameterType="java.lang.Long" resultType="MenuEntity">
+        select menu_id,menu_name from nfdw_menu where menu_id = #{menuid}
+    </select>
+    
+  <insert id="saveMenu" parameterType="java.lang.String"> 
+        insert into nfdw_menu(menu_name)  
+             values(#{menuname})  
+    </insert>
+	 
+	<update id="UpdateMenu" parameterType="com.exqoo.entity.MenuEntity" >
+		update nfdw_menu 
+		set menu_name=#{menuName}
+		where menu_id = #{menuId}
+	</update>
+	
+	<delete id="deleteMenu" parameterType="java.lang.Long">
+		delete from nfdw_menu
+		where 
+		menu_id = #{menuid}
+	</delete>
+
+</mapper>
