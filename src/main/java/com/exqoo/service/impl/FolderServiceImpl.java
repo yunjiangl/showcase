@@ -63,10 +63,23 @@ public class FolderServiceImpl implements FolderService {
 		
 		return folderDao.updateFolder(folder_name,folder_menu);
 	}
-	@Override
+	/**
+	 * 通过一级标题查询该一级标题下的所有文件夹
+	 * 
+	 * @param menuId
+	 *            一级标题id
+	 * @return 文件夹集合
+	 */
 	public List<FolderEntity> selectFoldersByMenuId(long menuId) {
 		
 		return folderDao.selectFoldersByMenuId(menuId);
+	}
+	/**
+	 * 通过一级标题查询所有的文件
+	 */
+	public List<FileEntity> selectFileAll(long menuId) {
+		
+		return folderDao.selectFileAll(menuId);
 	}
 	
 	

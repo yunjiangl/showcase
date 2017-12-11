@@ -63,13 +63,20 @@ tbody > tr > th {font-weight: normal; }
 	padding: 10px 0 0 0px;
 	height: 245px;
 }
-.top header,.center header{
+header{
 	font-size: 16px;
 	margin: 0 0 10px 10px;
 	font-weight: bold;
 }
+header .more{
+	float: right;
+	margin-right: 10px;
+}
+header .more a:hover{
+	color: #9999;
+}
 .top ul,.center ul,.after ul{
-	width: 40%;
+	width: 45%;
 	height: 245px;
 	line-height: 28px;
 }
@@ -114,7 +121,7 @@ tbody > tr > th {font-weight: normal; }
 	color: #0f0;
 }
 .after ul{
-	width: 20%;
+	width: 30%;
 }
 .after{
 	margin-top: 50px;

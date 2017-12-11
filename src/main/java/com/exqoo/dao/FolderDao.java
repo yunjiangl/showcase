@@ -69,4 +69,9 @@ public interface FolderDao {
 	 */
 	@Select("select * from nfdw_folder where folder_menu=#{menuId}")
 	List<FolderEntity> selectFoldersByMenuId(long menuId);
+	/**
+	 * 通过一级标题查询所有的文件
+	 */
+	@Select("select * from nfdw_file where file_menu=#{menuId}")
+	List<FileEntity> selectFileAll(@Param("menuId") long menuId);
 }

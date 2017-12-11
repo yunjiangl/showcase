@@ -59,4 +59,8 @@ public interface FolderService {
 	 * @return 文件夹集合
 	 */
 	List<FolderEntity> selectFoldersByMenuId(long menuId);
+	/**
+	 * 通过一级标题查询所有的文件
+	 */
+	List<FileEntity> selectFileAll(long menuId);
 }

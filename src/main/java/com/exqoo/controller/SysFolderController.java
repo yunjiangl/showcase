@@ -109,4 +109,18 @@ public class SysFolderController {
 		model.addAttribute("flist", list);
 		return list;
 	}
+	/**
+	 * 更多页面跳转
+	 * 数据展示
+	 */
+	@RequestMapping(value="/sys/main/more")
+	public String more(Model model,@RequestParam("menuId") long menuId) {
+		//查询出所有文件数据
+		List<FileEntity> FileList=folderServiceImpl.selectFileAll(menuId);
+		//查询出所有文件夹数据
+		List<FolderEntity> FileListAll=folderServiceImpl.selectFoldersByMenuId(menuId);
+		model.addAttribute("FileList", FileList);
+		model.addAttribute("FileListAll", FileListAll);
+		return "sys/more";
+	}
 }
